@@ -1,0 +1,288 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(to right, #07152f, #0b1c3d);
+  color: white;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+header {
+  background-color: rgba(8, 17, 38, 0.95);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #38bdf8;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.logo span{
+  color:#7dd3fc;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+.hero {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  padding: 60px 0;
+  background: linear-gradient(to right, #07152f, #1b2d4a);
+}
+
+.hero-text h2 {
+  font-size: 54px;
+  margin-bottom: 10px;
+}
+
+.hero-text h3 {
+  font-size: 28px;
+  color: #38bdf8;
+  margin-bottom: 18px;
+}
+
+.hero-description {
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #38bdf8, #0ea5e9);
+  color: #07152f;
+  padding: 14px 26px;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover{
+  transform: translateY(-3px);
+  box-shadow:0 8px 25px rgba(56,189,248,0.45);
+}
+
+section {
+  padding: 70px 0;
+}
+
+section h2 {
+  font-size: 42px;
+  margin-bottom: 22px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+section h2::after{
+  content:"";
+  position:absolute;
+  width:60%;
+  height:3px;
+  background:#38bdf8;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  border-radius:3px;
+}
+
+.sobre p,
+.contato p {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+  font-size: 19px;
+}
+
+.skills-grid,
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.skill-card,
+.card {
+  background: linear-gradient(145deg, #1e293b, #172033);
+  padding: 28px;
+  border-radius: 16px;
+  transition: 0.35s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  border: 1px solid rgba(56,189,248,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* efeito brilho */
+
+.skill-card::before,
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(56,189,248,0.25),
+    transparent
+  );
+  opacity:0;
+  transition:0.5s;
+
+  /* IMPORTANTE */
+  pointer-events: none;
+}
+
+.skill-card:hover::before,
+.card:hover::before{
+  opacity:1;
+}
+
+.skill-card:hover,
+.card:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}
+
+.skill-card h3,
+.card h3 {
+  margin-bottom: 12px;
+  color: #38bdf8;
+  font-size: 26px;
+}
+
+.skill-card p,
+.card p {
+  font-size: 17px;
+  color: #e5e7eb;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 18px;
+  text-decoration: none;
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+/* garante que links fiquem clicáveis */
+
+.card a,
+.btn,
+.links-contato a,
+nav a {
+  position: relative;
+  z-index: 2;
+}
+
+.links-contato {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.links-contato a {
+  text-decoration: none;
+  background-color: #38bdf8;
+  color: #07152f;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.links-contato a:hover {
+  background-color: #0ea5e9;
+  transform: translateY(-3px);
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  background-color: rgba(8, 17, 38, 0.95);
+  margin-top: 20px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+@media (max-width: 900px) {
+
+  .hero-text h2 { font-size: 42px; }
+
+  .skills-grid,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+}
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  display: block;
+  transition: 0.4s;
+}
+
+.card:hover img {
+  transform: scale(1.03);
+}
