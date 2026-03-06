@@ -51,6 +51,7 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 22px;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -171,8 +172,6 @@ section h2::after{
   );
   opacity:0;
   transition:0.5s;
-
-  /* IMPORTANTE */
   pointer-events: none;
 }
 
@@ -207,8 +206,6 @@ section h2::after{
   color: #38bdf8;
   font-weight: bold;
 }
-
-/* garante que links fiquem clicáveis */
 
 .card a,
 .btn,
@@ -262,27 +259,84 @@ footer {
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
 
-@media (max-width: 900px) {
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  object-position:top;
+  border-radius:12px;
+  margin-bottom:15px;
+  display:block;
+  transition:0.4s;
+}
 
-  .hero-text h2 { font-size: 42px; }
+.card:hover img{
+  transform:scale(1.03);
+}
 
-  .skills-grid,
-  .cards {
-    grid-template-columns: 1fr;
+/* ===== correção mobile ===== */
+
+html, body{
+  overflow-x:hidden;
+}
+
+@media (max-width:768px){
+
+  .container{
+    width:92%;
   }
 
-}
-.card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  display: block;
-  transition: 0.4s;
-}
+  .nav{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
 
-.card:hover img {
-  transform: scale(1.03);
+  nav{
+    width:100%;
+  }
+
+  nav ul{
+    flex-wrap:wrap;
+    gap:14px;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:40px 0;
+  }
+
+  .hero-text h2{
+    font-size:34px;
+    line-height:1.2;
+  }
+
+  .hero-text h3{
+    font-size:22px;
+  }
+
+  .hero-description{
+    font-size:16px;
+  }
+
+  section h2{
+    font-size:32px;
+  }
+
+  .sobre p,
+  .contato p,
+  .skill-card p,
+  .card p{
+    font-size:16px;
+  }
+
+  .skills-grid,
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .card img{
+    height:180px;
+  }
+
 }
